@@ -1,0 +1,19 @@
+FROM node:16
+
+# 앱 디렉터리 생성
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+
+# 앱 의존성 설치
+# 가능한 경우(npm@5+) package.json과 package-lock.json을 모두 복사하기 위해
+# 와일드카드를 사용
+COPY package*.json ./
+
+RUN npm ci --legacy-peer-deps
+
+RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
+
+# 앱 소스 추가
+COPY . .
+
+CMD [ "npm", "run", "build", "--if-present"]
