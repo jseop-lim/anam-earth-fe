@@ -7,7 +7,7 @@ on:
 
 env:
   S3_BUCKET_NAME: anam-earth
-  S3_KEY: front/build
+  S3_KEY: frontend/build.zip
   CD_APPLICATION_NAME: anam-earth-deploy
 
 
@@ -37,9 +37,13 @@ jobs:
         run: npm run build --if-present
         env:
           CI: false
+      -
+        name: Copy appspec.yml to build directory
+        run: cp appspec.yml build/appspec.yml
+         
 #      -
 #        name: Make zip file
-#        run: zip -r ./${{ S3_KEY }}.zip .
+#        run: zip -r ./${{ S3_KEY }} .
 #        shell: bash
       -
         name: Configure AWS Credentials
@@ -54,7 +58,7 @@ jobs:
           aws deploy push
           --application-name ${{ env.CD_APPLICATION_NAME }}
           --description "This is a revision for the application ${{ env.CD_APPLICATION_NAME }}"
-          --s3-location s3://${{ env.S3_BUCKET_NAME }}/${{ env.S3_KEY }}.zip
+          --s3-location s3://${{ env.S3_BUCKET_NAME }}/${{ env.S3_KEY }}
           --source ./build
 #        env:
 #          cd-application-name: ${{ env.CD_APPLICATION_NAME }}
@@ -72,4 +76,4 @@ jobs:
           --application-name ${{ env.CD_APPLICATION_NAME }}
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name anam-earth-deploy-group
-          --s3-location bucket=${{ env.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_KEY }}.zip
+          --s3-location bucket=${{ env.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_KEY }}
