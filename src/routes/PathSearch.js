@@ -1,6 +1,6 @@
 /*global kakao */
 import React, { useEffect, useState } from 'react';
-
+import '../css/button.css';
 export default function Map() {
     const [position, setPosition] = useState([
         { title: '출발지', lat: 0, lng: 0 },
@@ -118,17 +118,33 @@ export default function Map() {
 
     return (
         <div>
-            <div id="map" style={{ width: '80vw', height: '80vh' }}></div>
-            <button className="submit-button" onClick={start}>
+            <div id="map" style={{ width: '90vw', height: '70vh' }}></div>
+            <button
+                className="submit-button"
+                onClick={start}
+                style={{ margin: '30px' }}
+            >
                 출발지
             </button>
-            <button className="submit-button" onClick={end}>
+            <button
+                className="submit-button"
+                onClick={end}
+                style={{ margin: '30px' }}
+            >
                 도착지
             </button>
-            <button className="submit-button" onClick={clear}>
+            <button
+                className="submit-button"
+                onClick={clear}
+                style={{ margin: '30px' }}
+            >
                 초기화
             </button>
-            <button className="submit-button" onClick={submit}>
+            <button
+                className="submit-button"
+                onClick={submit}
+                style={{ margin: '30px' }}
+            >
                 최적경로 찾기!
             </button>
         </div>
