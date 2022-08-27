@@ -118,7 +118,7 @@ export default function Map() {
 
     return (
         <div>
-            <div id="map" style={{ width: '80vw', height: '80vh' }}></div>
+            <div id="map" style={{ width: '90vw', height: '70vh' }}></div>
             <button className="submit-button" onClick={start}>
                 출발지
             </button>

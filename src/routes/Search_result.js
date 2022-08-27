@@ -81,7 +81,7 @@ const Search_result = () => {
         longitude: 127.0288,
         width: '80vw',
         height: '70vh',
-        zoom: 15,
+        zoom: 17,
     });
 
     return (

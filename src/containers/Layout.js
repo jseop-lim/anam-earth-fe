@@ -14,36 +14,28 @@ const CustomLayout = props => {
                 }}
             >
                 <div className="logo" />
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    defaultSelectedKeys={['2']}
-                    items={new Array(3).fill(null).map((_, index) => ({
-                        key: String(index + 1),
-                        label: `Front${index + 1}`,
-                    }))}
-                />
+                <Menu theme="dark" mode="horizontal">
+                    <Menu.Item>
+                        <Link to="/">홈</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to="/Barrier_free">배리어프리 지도</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to="/kakaomap">배리어프리 경로찾기</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to="/view">게시판</Link>
+                    </Menu.Item>
+                </Menu>
             </Header>
             <Content
                 className="site-layout"
                 style={{
                     padding: '0 50px',
                     marginTop: 64,
-                    width: '100%',
-                    height: '100%',
                 }}
             >
-                <Breadcrumb
-                    style={{
-                        margin: '16px 0',
-                    }}
-                >
-                    <Breadcrumb.Item>
-                        <Link to="/">Home</Link>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>List</Breadcrumb.Item>
-                    <Breadcrumb.Item>App</Breadcrumb.Item>
-                </Breadcrumb>
                 <div
                     className="site-layout-background"
                     style={{

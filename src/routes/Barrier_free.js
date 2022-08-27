@@ -6,6 +6,15 @@ import '../css/Barrier_free.css';
 const SERVER_URL = 'http://anam-earth-api.jseoplim.com/map/arcs';
 
 const Barrier_free = () => {
+    // 노드 저장
+    const [Node, setNode] = useState(null);
+
+    const fetchData = async () => {
+        const response = await axios.get(
+            'http://anam-earth-api.jseoplim.com/map/nodes'
+        );
+        setNode(response.data);
+    };
     // level1 수준 노드 저장
     const [TodoList1, setTodoList1] = useState(null);
 
@@ -33,12 +42,26 @@ const Barrier_free = () => {
         setTodoList3(response.data);
     };
     useEffect(() => {
+        fetchData();
         fetchData1();
         fetchData2();
         fetchData3();
     }, []);
 
     // 레이어 css스타일
+
+    const NodeStyle = {
+        id: 'point',
+        type: 'circle',
+        source: 'point',
+        paint: {
+            'circle-color': '#FFFFFF',
+            'circle-radius': 5,
+            'circle-stroke-color': '#B2B2B9',
+            'circle-stroke-width': 2,
+        },
+    };
+
     const layerStyle1 = {
         id: 'multiple-lines-source1',
         type: 'line',
@@ -94,7 +117,7 @@ const Barrier_free = () => {
     return (
         <div className="Mapbox">
             <ReactMapGL
-                style={{ width: '80vw', height: '70vh' }}
+                style={{ width: '100vw', height: '70vh' }}
                 {...viewport}
                 mapboxAccessToken={MAP_TOKEN}
                 mapStyle="mapbox://styles/mapbox/streets-v11"
@@ -128,6 +151,11 @@ const Barrier_free = () => {
                         data={TodoList3}
                     >
                         <Layer {...layerStyle3} />
+                    </Source>
+                </div>
+                <div>
+                    <Source id="Point" type="geojson" data={Node}>
+                        <Layer {...NodeStyle} />
                     </Source>
                 </div>
             </ReactMapGL>
