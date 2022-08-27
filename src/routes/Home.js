@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Writing from '../components/Writing';
 import '../App.css';
-
+import '../css/button.css';
 const SERVER_URL = 'http://anam-earth-api.jseoplim.com/board/posts';
 
 function Home() {
