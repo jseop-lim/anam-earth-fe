@@ -1,0 +1,45 @@
+.button1 {
+    color: #444444;
+    background: #f3f3f3;
+    border: 3px #838282 solid;
+    padding: 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12pt;
+    outline: none;
+    height: 250px;
+    width: 250px;
+    float: left;
+    background-image: url("../images/1.jpg");
+
+}
+.button2 {
+    color: #444444;
+    background: #f3f3f3;
+    border: 3px #838282 solid;
+    padding: 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12pt;
+    outline: none;
+    height: 250px;
+    width: 250px;
+    float: left;
+    background-image: url("../images/2.jpg");
+
+}
+.button3 {
+    color: #444444;
+    background: #f3f3f3;
+    border: 3px #838282 solid;
+    padding: 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12pt;
+    outline: none;
+    height: 250px;
+    width: 250px;
+    float: left;
+    background-image: url("../images/3.jpg");
+
+}
