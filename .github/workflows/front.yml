@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16.16]
 
     steps:
       -
@@ -31,13 +31,10 @@ jobs:
           cache: 'npm'
       -
         name: Install Dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
       -
         name: Build
         run: npm run build --if-present
-      -
-        name: Test
-        run: npm test
 #      -
 #        name: Make zip file
 #        run: zip -r ./${{ S3_KEY }}.zip .
@@ -56,7 +53,7 @@ jobs:
             --application-name ${{ env.CD_APPLICATION_NAME }}
             --description "This is a revision for the application ${{ env.CD_APPLICATION_NAME }}"
             --s3-location s3://${{ env.S3_BUCKET_NAME }}/${{ env.S3_KEY }}.zip
-            --source .
+            --source ./build
 #        env:
 #          cd-application-name: ${{ env.CD_APPLICATION_NAME }}
 #        run: aws s3 cp --region ap-northeast-2 ./build-fe.zip s3://${{ env.S3_BUCKET_NAME }}/frontend/build.zip
