@@ -12,7 +12,7 @@ function Home() {
     const fetchData = async () => {
         const response = await axios.get(SERVER_URL);
         setTodoList(response.data);
-    };
+    };  
 
     useEffect(() => {
         fetchData();
