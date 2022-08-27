@@ -3,7 +3,7 @@ name: Anam-Earth Frontend CI
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 env:
   S3_BUCKET_NAME: anam-earth
