@@ -82,5 +82,5 @@ jobs:
           aws deploy create-deployment
           --application-name ${{ env.CD_APPLICATION_NAME }}
           --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name anam-earth-deploy-group
+          --deployment-group-name anam-earth-frontend-deploy-group
           --s3-location bucket=${{ env.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_KEY }}
