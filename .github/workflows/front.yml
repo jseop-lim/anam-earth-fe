@@ -52,10 +52,10 @@ jobs:
         name: Upload to S3
         run: >
           aws deploy push
-            --application-name ${{ env.CD_APPLICATION_NAME }}
-            --description "This is a revision for the application ${{ env.CD_APPLICATION_NAME }}"
-            --s3-location s3://${{ env.S3_BUCKET_NAME }}/${{ env.S3_KEY }}.zip
-            --source ./build
+          --application-name ${{ env.CD_APPLICATION_NAME }}
+          --description "This is a revision for the application ${{ env.CD_APPLICATION_NAME }}"
+          --s3-location s3://${{ env.S3_BUCKET_NAME }}/${{ env.S3_KEY }}.zip
+          --source ./build
 #        env:
 #          cd-application-name: ${{ env.CD_APPLICATION_NAME }}
 #        run: aws s3 cp --region ap-northeast-2 ./build-fe.zip s3://${{ env.S3_BUCKET_NAME }}/frontend/build.zip
@@ -69,7 +69,7 @@ jobs:
         name: Code Deploy
         run: >
           aws deploy create-deployment
-            --application-name ${{ env.CD_APPLICATION_NAME }}
-            --deployment-config-name CodeDeployDefault.AllAtOnce
-            --deployment-group-name anam-earth-deploy-group
-            --s3-location bucket=${{ env.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_KEY }}.zip
+          --application-name ${{ env.CD_APPLICATION_NAME }}
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name anam-earth-deploy-group
+          --s3-location bucket=${{ env.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_KEY }}.zip
