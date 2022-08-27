@@ -29,6 +29,8 @@ const CustomLayout = props => {
                 style={{
                     padding: '0 50px',
                     marginTop: 64,
+                    width: '100%',
+                    height: '100%',
                 }}
             >
                 <Breadcrumb
@@ -55,6 +57,8 @@ const CustomLayout = props => {
             <Footer
                 style={{
                     textAlign: 'center',
+                    height: '100%',
+                    width: '100%',
                 }}
             >
                 Ant Design ?2018 Created by Ant UED

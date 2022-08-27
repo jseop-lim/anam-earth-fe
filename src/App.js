@@ -57,9 +57,30 @@ function App() {
                         </CustomLayout>
                     }
                 />
-                <Route path="editing" element={<TextEditer />} />
-                <Route path="view" element={<Home />} />
-                <Route path="view/:id" element={<ViewDetail />} />
+                <Route
+                    path="editing"
+                    element={
+                        <CustomLayout>
+                            <TextEditer />
+                        </CustomLayout>
+                    }
+                />
+                <Route
+                    path="view"
+                    element={
+                        <CustomLayout>
+                            <Home />
+                        </CustomLayout>
+                    }
+                />
+                <Route
+                    path="view/:id"
+                    element={
+                        <CustomLayout>
+                            <ViewDetail />
+                        </CustomLayout>
+                    }
+                />
             </Routes>
         </Router>
     );
