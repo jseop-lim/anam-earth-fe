@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Source, Layer, NavigationControl } from "react-map-gl";
 import axios from "axios";
+
+import mapboxgl from "mapbox-gl";
 import "../css/BarrierFree.css";
+
 const SERVER_URL = "http://anam-earth-api.jseoplim.com/map/arcs";
+
+/* eslint import/no-webpack-loader-syntax: off */
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 const BarrierFree = () => {
   // 노드 저장
