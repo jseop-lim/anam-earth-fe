@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Source, Layer, NavigationControl } from "react-map-gl";
+
+import mapboxgl from "mapbox-gl";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../css/SearchResult.css";
 
 // 최적경로 노드 가져오기
 
+/* eslint import/no-webpack-loader-syntax: off */
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+
 const SERVER_URL = `http://anam-earth-api.jseoplim.com/map/arcs/optimal`;
 
 const SearchResult = () => {
-  // level1 수준 노드 저장
   const { s_lat, s_lng, e_lat, e_lng } = useParams();
   const start_coordinate = [s_lng, s_lat];
   const end_coordinate = [e_lng, e_lat];

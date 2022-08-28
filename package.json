@@ -24,7 +24,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "underscore": "^1.13.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "worker-loader": "^3.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
