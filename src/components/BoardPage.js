@@ -21,12 +21,12 @@ function BoardPage() {
                 top: "25px",
               }}
             >
-              베리어프리 지도
+              배리어프리 지도
             </h2>
             <p
               style={{ "font-size": "12px", position: "relative", top: "40px" }}
             >
-              경사도, 도로포장도 등을 고려한 안암 내 베리어프리 지도을 확인할 수
+              경사도, 도로포장도 등을 고려한 안암 내 배리어프리 지도을 확인할 수
               있는 페이지입니다
             </p>
           </button>
@@ -43,12 +43,12 @@ function BoardPage() {
                 top: "25px",
               }}
             >
-              베리어프리 경로찾기
+              배리어프리 경로찾기
             </h2>
             <p
               style={{ "font-size": "12px", position: "relative", top: "40px" }}
             >
-              베리어프리 지도를 중심으로 목적지에 도착할 수 있는 최단경로를
+              배리어프리 지도를 중심으로 목적지에 도착할 수 있는 최단경로를
               확인할 수 있는 페이지입니다
             </p>
           </button>

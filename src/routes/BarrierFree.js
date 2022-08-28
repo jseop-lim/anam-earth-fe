@@ -30,19 +30,19 @@ const BarrierFree = () => {
     setTodoList1(response.data);
   };
 
-  // level1 수준 노드 저장
+  // level2 수준 노드 저장
   const [TodoList2, setTodoList2] = useState(null);
 
-  // level1 수준 노드 json형태로 저장.
+  // level2 수준 노드 json형태로 저장.
   const fetchData2 = async () => {
     const response = await axios.get(SERVER_URL + "?level=2");
     setTodoList2(response.data);
   };
 
-  // level1 수준 노드 저장
+  // level3 수준 노드 저장
   const [TodoList3, setTodoList3] = useState(null);
 
-  // level1 수준 노드 json형태로 저장.
+  // level3 수준 노드 json형태로 저장.
   const fetchData3 = async () => {
     const response = await axios.get(SERVER_URL + "?level=3");
     setTodoList3(response.data);
