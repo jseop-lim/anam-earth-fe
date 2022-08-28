@@ -34,7 +34,6 @@ const SearchResult = () => {
       properties: {},
       ...response.data,
     });
-    // 왜 돌아가는지 모름
     var temp = response;
     setNode({
       type: "FeatureCollection",
