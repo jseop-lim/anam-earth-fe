@@ -50,6 +50,7 @@
 
 ## 디렉토리 구조
 
+![프론트 디렉토리](https://user-images.githubusercontent.com/88183316/187078647-5ec7e36e-f0ca-46da-97db-906a23b660ef.png)
 
 
 ## 기술스택
