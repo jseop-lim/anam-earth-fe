@@ -15,7 +15,7 @@ git, docker, docker compose가 설치된 Linux 환경을 전제한다.
 
 ```shell
 # GitHub에서 리엑트 프로젝트 파일 내려받기
-git clone
+git clone https://github.com/jseop-lim/anam-earth-fe.git
 cd anam-earth-fe
 # Docker 컨테이너 빌드 및 실행
 docker compose -f docker-compose.dev.yml up -d
