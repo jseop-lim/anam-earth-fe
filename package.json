@@ -23,6 +23,7 @@
     "react-map-gl": "^7.0.18",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "underscore": "^1.13.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
