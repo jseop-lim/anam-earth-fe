@@ -38,7 +38,7 @@ docker logs -f anam-earth-fe-dev
 ![배리어프리 지도](https://user-images.githubusercontent.com/88183316/187078733-7a2fca40-6f7a-403d-bba3-3dd42a07dd94.png)
 
 - 홈 화면에서 배리어프리 지도 버튼을 클릭하면 위 지도를 볼 수 있다. 지도에서는 사전에 3가지 level(상, 중, 하)로 분류한 안암동 내 여러 경로에 대한 배리어프리 수준을 확인할 수 있다.
-- Green: '상'   Orange: '중'  Red: '하' 
+- Green: '상'   Yellow: '중'  Red: '하' 
 
 <br><h3>베리어프리 경로찾기</h3>
 
