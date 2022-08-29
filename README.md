@@ -87,8 +87,8 @@ docker logs -f anam-earth-fe-dev
 
 ## 기여자 및 역할
 
-* [김경호](): 데이터 수집 및 가공, 팀장
-* [김제성](): 데이터 수집 및 가공
-* [윤화평](): 프론트엔드, 데이터 수집, 지도 API 연동 및 개발
+* [김경호](https://github.com/K-Kyungho): 데이터 수집 및 가공, 팀장
+* [김제성](https://github.com/jaykim1409): 데이터 수집 및 가공
+* [윤화평](https://github.com/Yoon-HP): 프론트엔드, 데이터 수집, 지도 API 연동 및 개발
 * [임정섭](https://github.com/jseop-lim): 백엔드, 데이터 수집, DB 설계, 서버 배포 및 관리
 * [최대원](https://github.com/ChoiDae1): 프론트엔드, 데이터 수집, 게시판 API 연동 및 개발
