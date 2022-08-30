@@ -10,7 +10,7 @@
 
 배포된 서비스는 [링크](http://anam-earth.jseoplim.com)로 접속 가능하다.
 
-시연 영상은 [링크](https://youtu.be/CrEMZ8INjK0)에서 확인 가능하다.
+시연 영상은 [링크](https://youtu.be/4yQ1w7MPmqk)에서 확인 가능하다.
 
 
 ## 설치 및 실행
