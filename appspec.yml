@@ -4,3 +4,13 @@ os: linux
 files:
   - source: /build
     destination: /home/ubuntu/anam-earth/frontend/build
+
+hooks:
+  BeforeInstall:
+    - location: deploy/before-install.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: deploy/after-install.sh
+      timeout: 300
+      runas: ubuntu
