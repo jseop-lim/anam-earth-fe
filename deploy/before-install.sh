@@ -2,5 +2,6 @@
 
 cd ~/anam-earth/deploy
 
-# Create and run docker containers
-docker compose up -d
+if [ "$(docker ps -aq -f name=nginx)" ]; then
+    docker compose stop nginx
+fi
