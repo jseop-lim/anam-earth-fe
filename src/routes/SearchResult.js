@@ -12,21 +12,60 @@ import "../css/SearchResult.css";
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
-const SERVER_URL = `http://anam-earth-api.jseoplim.com/map/arcs/optimal`;
+// 최적경로
+const SERVER_URL = `http://anam-earth-api.jseoplim.com/map/arcs/optimal-path`;
+
+// 최단경로
+const SERVER_URL2 = "http://anam-earth-api.jseoplim.com/map/arcs/shortest-path";
 
 const SearchResult = () => {
   const { s_lat, s_lng, e_lat, e_lng } = useParams();
   const start_coordinate = [s_lng, s_lat];
   const end_coordinate = [e_lng, e_lat];
 
+  // 최적경로
   const [TodoList, setTodoList] = useState(null);
+
+  // 최단경로
+  const [TodoList2, setTodoList2] = useState(null);
+
+  // 각 노드 표현
   const [Node, setNode] = useState(null);
 
+  const [Node2, setNode2] = useState(null);
+
+  // 최단경로
+  const fetchData_2 = async () => {
+    const response2 = await axios.post(SERVER_URL2, {
+      start_coordinate,
+      end_coordinate,
+    });
+
+    setTodoList2({
+      type: "Feature",
+      properties: {},
+      ...response2.data,
+    });
+
+    var temp = response2;
+    setNode2({
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          ...temp.data,
+        },
+      ],
+    });
+  };
+
+  // 최적경로
   const fetchData = async () => {
     const response = await axios.post(SERVER_URL, {
       start_coordinate,
       end_coordinate,
     });
+
     // geojson 형태 만들기
 
     setTodoList({
@@ -45,9 +84,12 @@ const SearchResult = () => {
       ],
     });
   };
+
   useEffect(() => {
     fetchData();
+    fetchData_2();
   }, []);
+
   // 레이어 css스타일
   const layerStyle = {
     id: "LineString",
@@ -64,7 +106,7 @@ const SearchResult = () => {
   };
   // 추측컨데 layer의 type에 따라 어떤 형식으로 나올지 결정이 되는 것 같다. data의 type이랑 같지 않아도 됨.
   const layerStyle_point = {
-    id: "point",
+    id: "MultiPoint",
     type: "circle",
     source: "point",
     paint: {
@@ -75,8 +117,35 @@ const SearchResult = () => {
     },
   };
 
+  // 최단경로 레이어 css
+  const layerStyle2 = {
+    id: "LineString2",
+    type: "line",
+    source: "route",
+    layout: {
+      "line-join": "round",
+      "line-cap": "round",
+    },
+    paint: {
+      "line-color": "#D6FF33",
+      "line-width": 4,
+    },
+  };
+  const layerStyle_point2 = {
+    id: "MultiPoint2",
+    type: "circle",
+    source: "point",
+    paint: {
+      "circle-color": "#FFFFFF",
+      "circle-radius": 3,
+      "circle-stroke-color": "#FF4833",
+      "circle-stroke-width": 1,
+    },
+  };
+
   const MAP_TOKEN =
     "pk.eyJ1IjoieXl5eWhwIiwiYSI6ImNsNmJycG00MDFlMGQzY21kNml5ZzNjZHAifQ.D3Y8MmV8mgwBgfbPH2Suvg";
+
   const [viewport, setViewState] = useState({
     latitude: 37.58613,
     longitude: 127.0288,
@@ -105,6 +174,16 @@ const SearchResult = () => {
         <div>
           <Source id="MultiPoint" type="geojson" data={Node}>
             <Layer {...layerStyle_point} />
+          </Source>
+        </div>
+        <div>
+          <Source id="LineString2" type="geojson" data={TodoList2}>
+            <Layer {...layerStyle2} />
+          </Source>
+        </div>
+        <div>
+          <Source id="MultiPoint2" type="geojson" data={Node2}>
+            <Layer {...layerStyle_point2} />
           </Source>
         </div>
       </ReactMapGL>
