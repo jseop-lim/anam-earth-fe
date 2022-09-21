@@ -15,6 +15,9 @@ mapboxgl.workerClass =
 // 최적경로
 const SERVER_URL = `http://anam-earth-api.jseoplim.com/map/arcs/optimal-path`;
 
+// 최단경로
+const SERVER_URL2 = "http://anam-earth-api.jseoplim.com/map/arcs/shortest-path";
+
 const SearchResult = () => {
   const { s_lat, s_lng, e_lat, e_lng } = useParams();
   const start_coordinate = [s_lng, s_lat];
@@ -23,8 +26,12 @@ const SearchResult = () => {
   // 최적경로
   const [TodoList, setTodoList] = useState(null);
 
+  // 최단경로
+  const [TodoList2, setTodoList2] = useState(null);
+
   // 각 노드 표현
   const [Node, setNode] = useState(null);
+
 
   // 최적경로
   const fetchData = async () => {

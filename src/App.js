@@ -3,12 +3,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 
 import BarrierFree from "./routes/BarrierFree";
+<<<<<<< HEAD
 
 import CustomLayout from "./containers/Layout";
 import BoardPage from "./components/BoardPage";
 import SearchResult from "./routes/SearchResult";
 import SearchResult2 from "./routes/SearchResult2";
 
+=======
+
+import CustomLayout from "./containers/Layout";
+import BoardPage from "./components/BoardPage";
+import SearchResult from "./routes/SearchResult";
+>>>>>>> 3e68203b59575282f415f06d5ba6b4dfd64cb5da
 
 // 게시판 components
 import TextEditer from "./routes/TextEditer";
@@ -49,6 +56,7 @@ function App() {
             </CustomLayout>
           }
         />
+<<<<<<< HEAD
 
         <Route
           exact
@@ -60,6 +68,8 @@ function App() {
           }
         />
 
+=======
+>>>>>>> 3e68203b59575282f415f06d5ba6b4dfd64cb5da
         <Route
           exact
           path="kakaomap"
