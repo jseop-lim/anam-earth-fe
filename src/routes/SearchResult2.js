@@ -12,7 +12,6 @@ import "../css/SearchResult.css";
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
-
 // 최단경로
 const SERVER_URL2 = "http://anam-earth-api.jseoplim.com/map/arcs/shortest-path";
 
@@ -21,16 +20,12 @@ const SearchResult2 = () => {
   const start_coordinate = [s_lng, s_lat];
   const end_coordinate = [e_lng, e_lat];
 
-  // 최적경로
-  const [TodoList, setTodoList] = useState(null);
-
   // 최단경로
   const [TodoList2, setTodoList2] = useState(null);
 
-  // 각 노드 표현
-  const [Node, setNode] = useState(null);
-
   const [Node2, setNode2] = useState(null);
+
+  const [dist, setDist] = useState(null);
 
   // 최단경로
   const fetchData_2 = async () => {
@@ -38,6 +33,8 @@ const SearchResult2 = () => {
       start_coordinate,
       end_coordinate,
     });
+
+    setDist(response2.data.properties.distance);
 
     setTodoList2({
       type: "Feature",
@@ -57,7 +54,6 @@ const SearchResult2 = () => {
     });
   };
 
-
   useEffect(() => {
     fetchData_2();
   }, []);
@@ -72,8 +68,8 @@ const SearchResult2 = () => {
       "line-cap": "round",
     },
     paint: {
-      "line-color": "#D6FF33",
-      "line-width": 4,
+      "line-color": "#16B135",
+      "line-width": 5,
     },
   };
   const layerStyle_point2 = {
@@ -82,9 +78,9 @@ const SearchResult2 = () => {
     source: "point",
     paint: {
       "circle-color": "#FFFFFF",
-      "circle-radius": 3,
-      "circle-stroke-color": "#FF4833",
-      "circle-stroke-width": 1,
+      "circle-radius": 5,
+      "circle-stroke-color": "#B17116",
+      "circle-stroke-width": 2,
     },
   };
 
@@ -122,6 +118,9 @@ const SearchResult2 = () => {
           </Source>
         </div>
       </ReactMapGL>
+      <div>
+        <h2>목적지까지의 거리는 {dist}m 입니다.</h2>
+      </div>
     </div>
   );
 };
