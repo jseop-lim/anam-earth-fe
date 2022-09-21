@@ -116,6 +116,17 @@ export default function Map() {
         }
     }
 
+    function submit2() {
+        if (position[0].lat && position[1].lat) {
+            alert('최단경로를 탐색합니다.');
+            // 로컬변수 외부 js파일에서 쓰는 방법
+            window.location.href = `/anam2/${position[0].lat}/${position[0].lng}/${position[1].lat}/${position[1].lng}`;
+        } else {
+            alert('출발지와 도착지를 선택한 후 눌러주세요.');
+        }
+    }
+
+
     return (
         <div>
             <div id="map" style={{ width: '90vw', height: '70vh' }}></div>
@@ -146,6 +157,13 @@ export default function Map() {
                 style={{ margin: '30px' }}
             >
                 최적경로 찾기!
+            </button>
+            <button
+                className="submit-button"
+                onClick={submit2}
+                style={{ margin: '30px' }}
+            >
+                최단경로 찾기!
             </button>
         </div>
     );
