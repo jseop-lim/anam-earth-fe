@@ -12,41 +12,38 @@ import "../css/SearchResult.css";
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
-// 최적경로
-const SERVER_URL = `http://anam-earth-api.jseoplim.com/map/arcs/optimal-path`;
+// 최단경로
+const SERVER_URL2 = "http://anam-earth-api.jseoplim.com/map/arcs/shortest-path";
 
-const SearchResult = () => {
+const SearchResult2 = () => {
   const { s_lat, s_lng, e_lat, e_lng } = useParams();
   const start_coordinate = [s_lng, s_lat];
   const end_coordinate = [e_lng, e_lat];
 
-  // 최적경로
-  const [TodoList, setTodoList] = useState(null);
+  // 최단경로
+  const [TodoList2, setTodoList2] = useState(null);
 
-  // 각 노드 표현
-  const [Node, setNode] = useState(null);
+  const [Node2, setNode2] = useState(null);
 
   const [dist, setDist] = useState(null);
 
-  // 최적경로
-  const fetchData = async () => {
-    const response = await axios.post(SERVER_URL, {
+  // 최단경로
+  const fetchData_2 = async () => {
+    const response2 = await axios.post(SERVER_URL2, {
       start_coordinate,
       end_coordinate,
     });
 
-    setDist(response.data.properties.distance);
+    setDist(response2.data.properties.distance);
 
-    // geojson 형태 만들기
-
-    setTodoList({
+    setTodoList2({
       type: "Feature",
       properties: {},
-      ...response.data,
+      ...response2.data,
     });
 
-    var temp = response;
-    setNode({
+    var temp = response2;
+    setNode2({
       type: "FeatureCollection",
       features: [
         {
@@ -58,12 +55,12 @@ const SearchResult = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData_2();
   }, []);
 
-  // 레이어 css스타일
-  const layerStyle = {
-    id: "LineString",
+  // 최단경로 레이어 css
+  const layerStyle2 = {
+    id: "LineString2",
     type: "line",
     source: "route",
     layout: {
@@ -71,19 +68,18 @@ const SearchResult = () => {
       "line-cap": "round",
     },
     paint: {
-      "line-color": "#0073FF",
+      "line-color": "#16B135",
       "line-width": 5,
     },
   };
-  // 추측컨데 layer의 type에 따라 어떤 형식으로 나올지 결정이 되는 것 같다. data의 type이랑 같지 않아도 됨.
-  const layerStyle_point = {
-    id: "MultiPoint",
+  const layerStyle_point2 = {
+    id: "MultiPoint2",
     type: "circle",
     source: "point",
     paint: {
       "circle-color": "#FFFFFF",
       "circle-radius": 5,
-      "circle-stroke-color": "#15FB09",
+      "circle-stroke-color": "#B17116",
       "circle-stroke-width": 2,
     },
   };
@@ -112,13 +108,13 @@ const SearchResult = () => {
           <NavigationControl />
         </div>
         <div>
-          <Source id="LineString" type="geojson" data={TodoList}>
-            <Layer {...layerStyle} />
+          <Source id="LineString2" type="geojson" data={TodoList2}>
+            <Layer {...layerStyle2} />
           </Source>
         </div>
         <div>
-          <Source id="MultiPoint" type="geojson" data={Node}>
-            <Layer {...layerStyle_point} />
+          <Source id="MultiPoint2" type="geojson" data={Node2}>
+            <Layer {...layerStyle_point2} />
           </Source>
         </div>
       </ReactMapGL>
@@ -128,4 +124,4 @@ const SearchResult = () => {
     </div>
   );
 };
-export default SearchResult;
+export default SearchResult2;
