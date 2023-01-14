@@ -12,6 +12,9 @@
 
 시연 영상은 [링크](https://youtu.be/4yQ1w7MPmqk)에서 확인 가능하다.
 
+최종 결과 보고서는 [링크](https://github.com/jseop-lim/anam-earth-fe/files/10418098/2022._._5.pdf)에서 확인 가능하다. 
+
+
 
 ## 설치 및 실행
 git, docker, docker compose가 설치된 Linux 환경을 전제한다.
